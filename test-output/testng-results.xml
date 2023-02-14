@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-02-14T13:38:57 IST" name="Default suite" finished-at="2023-02-14T13:39:01 IST" duration-ms="4405">
+    <groups>
+    </groups>
+    <test started-at="2023-02-14T13:38:57 IST" name="Default test" finished-at="2023-02-14T13:39:01 IST" duration-ms="4405">
+      <class name="com.koinx.test.GetRequest">
+        <test-method signature="postCreateUser(org.testng.ITestContext)[pri:1, instance:com.koinx.test.GetRequest@506ae4d4]" started-at="2023-02-14T13:38:57 IST" name="postCreateUser" finished-at="2023-02-14T13:39:00 IST" duration-ms="3166" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@15d49048]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- postCreateUser -->
+        <test-method signature="getDisplayUser(org.testng.ITestContext)[pri:2, instance:com.koinx.test.GetRequest@506ae4d4]" started-at="2023-02-14T13:39:00 IST" name="getDisplayUser" finished-at="2023-02-14T13:39:01 IST" depends-on-methods="com.koinx.test.GetRequest.postCreateUser" duration-ms="1175" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@15d49048]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getDisplayUser -->
+      </class> <!-- com.koinx.test.GetRequest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
