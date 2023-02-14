@@ -11,11 +11,21 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
+/**
+ * ApiTestCases
+ * @author Aarti Gorde
+ *
+ */
 public class ApiTestCases {
 
+	/**
+	 * This test case called /transaction api to get response message
+	 * @param context
+	 * @throws Exception
+	 */
 	@Test(priority = 1)
-	public void postCreateUser(ITestContext context) {
-		HashMap<String,String> data = new HashMap<String, String>();
+	public void verifyTransactionAPI(ITestContext context) throws Exception {
+		HashMap<String, String> data = new HashMap<String, String>();
 		data.put("coin1", "INR");
 		data.put("coin2", "USDT");
 		data.put("coin1Amount", "300");
@@ -31,8 +41,13 @@ public class ApiTestCases {
 		Assert.assertEquals(response.statusCode(), 200);
 	}
 
-	@Test(priority = 2, dependsOnMethods = "postCreateUser")
-	public void getDisplayUser(ITestContext context) {
+	/**
+	 * This test case calls /transaction api for requested id 
+	 * @param context
+	 * @throws Exception
+	 */
+	@Test(priority = 2, dependsOnMethods = "verifyTransactionAPI")
+	public void verifyTractionAPIForId(ITestContext context) throws Exception {
 		int j = (Integer) context.getAttribute("userid");
 
 		Response response = given().contentType("application/json").urlEncodingEnabled(false).pathParam("id", +j).when()
@@ -40,9 +55,17 @@ public class ApiTestCases {
 
 		JSONObject responseObject = new JSONObject(response.asPrettyString());
 		System.out.println("get request response = " + responseObject);
-		System.out.println("Response :: receivedCoinMarketPrice: " + responseObject.getDouble("receivedCoinMarketPrice"));
+		System.out
+				.println("Response :: receivedCoinMarketPrice: " + responseObject.getDouble("receivedCoinMarketPrice"));
 		System.out.println("Calcualted : receivedCoinMarketPrice: "
 				+ responseObject.getDouble("sentCoinAmount") / responseObject.getDouble("receivedCoinAmount"));
+
+		Double expectedResult = responseObject.getDouble("receivedCoinMarketPrice");
+
+		Double actualResult = responseObject.getDouble("sentCoinAmount")
+				/ responseObject.getDouble("receivedCoinAmount");
+
+		Assert.assertEquals(expectedResult, actualResult);
 	}
 
 }

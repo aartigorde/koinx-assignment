@@ -3,8 +3,7 @@
 <suite name="Suite">
   <test thread-count="5" name="Test">
   <classes>
-  	<class name="com.koinx.test.GetRequest"/>
-  	<class name="com.koinx.test.PostRequest"/>
+  	<class name="com.koinx.test.ApiTestCases"/>
   </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
