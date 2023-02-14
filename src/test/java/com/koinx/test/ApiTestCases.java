@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import io.restassured.response.Response;
 
-public class GetRequest {
+public class ApiTestCases {
 
 	@Test(priority = 1)
 	public void postCreateUser(ITestContext context) {
